@@ -14,8 +14,6 @@ $(document).ready(function() {
       password: passwordInput.val().trim(),
     };
 
-    console.log(userData);
-
     if (!userData.email || !userData.password || !userData.firstName) {
       return;
     }
@@ -34,7 +32,7 @@ $(document).ready(function() {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()      
     };
-    
+
     $.post("/api/signup", userData)
       .then(function(data) {
         window.location.replace("/members");

@@ -19,10 +19,8 @@ function postStats(){
     
     var userData = {
       challenge: selectOption,
-      goal: $("#goal-input").val().trim(),
       miles: $("#miles-input").val().trim(),
       duration: $("#duration-input").val().trim(),      
-      steps: $("#steps-input").val().trim(),
       id: $("#id-input").val()      
     };
         
