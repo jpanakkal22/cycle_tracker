@@ -29,17 +29,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  app.get("/stats", (req, res) => {    
-    // if (req.user) {
-    //   res.redirect("/members");
-    // }
-    res.sendFile(path.join(__dirname, "../public/test.html"));
-  });
-
   app.get("/results", (req, res) => {    
-    // if (req.user) {
-    //   res.redirect("/members");
-    // }
+    if (req.user) {
+      res.redirect("/members");
+    }
     res.sendFile(path.join(__dirname, "../public/results.html"));
   });
   

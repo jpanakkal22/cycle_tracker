@@ -27,17 +27,45 @@
         <h2>Welcome <span class="member-name"></span></h2>
       </div>
     </div>
-    
+    <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <h2> Cycle Challenge</h2>
-        <a href="/stats" class="btn btn-danger btn-sm">
-        <span class="fa fa-plus"></span> Click Here!</a>        
-      </div>      
+        <h2>STATS</h2>
+        <form>
+          <div class="form-group">
+            <label for="type">Challenge Type:</label>
+            <select name="type" id="challenge-type">
+              <option display hidden>Choose a Challenge</option>
+              <option value="12-MILE">12 MILE</option>
+              <option value="30-MILE">30 MILE</option>
+              <option value="50-MILE">50 MILE</option>
+              <option value="75-MILE">30 MILE</option>
+              <option value="CENTURY">CENTURY RIDE!</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputMiles">MILES</label>
+            <input type="Miles" class="form-control" id="miles-input" placeholder="Miles">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputDuration">DURATION</label>
+            <input type="Duration" class="form-control" id="duration-input" placeholder="Duration">
+          </div>          
+          <div class="form-group">
+            <label for="exampleInputID"></label>
+            <input type="hidden" id="id-input" value="">
+          </div>  
+          <button onclick="document.location='/results'" type="submit" class="btn btn-default">Enter</button>          
+        </form>
+        <br />        
+      </div>
+    </div>     
+          
     </div>
   </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/members.js"></script>
+<script type="text/javascript" src="js/test.js"></script>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
