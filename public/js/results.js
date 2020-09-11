@@ -1,13 +1,12 @@
-$(function () {
+$(function () {  
     $(document).ready(() => {        
-      getAllStats();               
+      // getAllStats();          
     });     
   });
 
   // Function to get all challenge information from database
   function getAllStats(){
-    $.get("/api/all-stats", function(data){
-      
+    $.get("/api/all-stats", function(data){      
       $(".container").text(JSON.stringify(data));
     }); 
   }

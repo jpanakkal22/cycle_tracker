@@ -29,10 +29,8 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
+  // Route to results page
   app.get("/results", (req, res) => {    
-    if (req.user) {
-      res.redirect("/members");
-    }
     res.sendFile(path.join(__dirname, "../public/results.html"));
   });
   
