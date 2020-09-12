@@ -1,6 +1,7 @@
 $(function () {  
+   
     $(document).ready(() => {        
-      // getAllStats();          
+      getAllStats();   
     });     
   });
 

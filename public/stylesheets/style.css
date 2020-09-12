@@ -2,3 +2,25 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("../assets/img_bike.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navbar {
+  border-width: 0;
+  background-color: rgba(255, 255, 255, 0);
+}
