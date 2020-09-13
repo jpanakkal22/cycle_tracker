@@ -68,21 +68,20 @@ module.exports = function(app) {
   app.get("/api/all-stats", function(req, res) {
       db.cycleChallenge.findAll({})
       .then(function(allStats){
-        // console.log(allStats);
+       
         res.json(allStats);
 
         // Maps all database information
-        var newArray = allStats.map(x => x.dataValues);
+        // var newArray = allStats.map(x => x.dataValues);
 
-        // Filters out all data with RUN
-        var filterArray = newArray.filter(function(y) {
-          return y.challenge === 'run';});
+        // // Filters out all data with RUN
+        // var filterArray = newArray.filter(function(y) {
+        //   return y.challenge === 'run';});
 
-        // Filter out all data with WALK  
-        var filterArrayUserId = newArray.filter(function(z) {
-          return z.UserId === 8;}); 
-          
-        console.log(filterArrayUserId);        
+        // // Filter out all data with WALK  
+        // var filterArrayUserId = newArray.filter(function(z) {
+        //   return z.UserId === 8;});           
+           
       });          
   });
 };
