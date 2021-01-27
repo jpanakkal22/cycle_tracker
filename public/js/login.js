@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(() => {
   // Getting references to our form and inputs
   const loginForm = $("form.login");
   const emailInput = $("input#emailInput");
   const passwordInput = $("input#passwordInput");
 
   // When the form is submitted, we validate there's an email and password entered
-  loginForm.on("submit", function(event) {
+  loginForm.on("submit", (event) => {
     event.preventDefault();
     const userData = {
       email: emailInput.val().trim(),
@@ -23,36 +23,24 @@ $(document).ready(function() {
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(email, password) {
+  const loginUser = (email, password) => {
     $.post("/api/login", {
       email: email,
       password: password
     })
-      .then(function() {
-        window.location.replace("/members");
-        // If there's an error, log the error
+      .then(() => {
+        window.location.replace("/members");        
       })
-      .catch(function(err) {
-        console.log(err);
-      });
+      // If there's an error, log the error
+      .catch(handleLoginErr);
   }
+  // Function to display login error message
+  const handleLoginErr = () => {
+    $.get("/api/login", function(msg) {
+      $(".msg").text(msg[0]);
+      $("#alert").fadeIn(500);
+    });   
+  }  
 });
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-      //   (function() {
-      //     'use strict';
-      //     window.addEventListener('load', function() {
-      //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      //     var forms = document.getElementsByClassName('needs-validation');
-      //     // Loop over them and prevent submission
-      //     var validation = Array.prototype.filter.call(forms, function(form) {
-      //         form.addEventListener('submit', function(event) {
-      //             if (form.checkValidity() === false) {
-      //                 event.preventDefault();
-      //             event.stopPropagation();
-      //         }
-      //         form.classList.add('was-validated');
-      //         }, false);
-      //     });
-      //     }, false);
-      // })();
+  
 
