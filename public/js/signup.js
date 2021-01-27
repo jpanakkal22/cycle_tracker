@@ -1,14 +1,14 @@
-$(document).ready(function() {
+$(document).ready(() => {
   // Getting references to our form and input
-  var signUpForm = $("form.signup");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
-  var firstNameInput = $("input#firstName-input");
+  const signUpForm = $("form.signup");
+  const emailInput = $("input#email-input");
+  const passwordInput = $("input#password-input");
+  const firstNameInput = $("input#firstName-input");
  
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function(event) {
+  signUpForm.on("submit", (event) => {
     event.preventDefault();
-    var userData = {
+    const userData = {
       firstName: firstNameInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
@@ -24,25 +24,17 @@ $(document).ready(function() {
     passwordInput.val("");    
   });
 
-  // Does a post to the signup route. If successful, we are redirected to the allexercises page
-  // Otherwise we log any errors
-  function signUpUser() {
-    var userData = {
-      firstName: firstNameInput.val().trim(),
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()      
-    };
-
-    $.post("/api/signup", userData)
-      .then(function(data) {
+  const signUpUser = (signUpInfo) => {
+    // Send user information to database along signup route
+    $.post("/api/signup", signUpInfo)
+      .then(() => {
         window.location.replace("/members");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
-      .catch(handleLoginErr);
+      .catch(handleSignUpErr);
   }
 
-  function handleLoginErr(err) {
-    console.log(err);
+  const handleSignUpErr = (err) => {
     $(".msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
