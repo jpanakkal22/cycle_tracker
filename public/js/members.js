@@ -1,5 +1,5 @@
- // Store id in variable
- var userId;
+// Store id in variable
+const userId;
  
 $(document).ready(() => {
 
@@ -11,17 +11,16 @@ $(document).ready(() => {
     $("#id-input").val(data.id);
   });
  
-  postStats();
-  
+  postStats();  
   updateStats();
    
 });
 
-function postStats(){
-  $(".enter").on("click", function(event) {      
+const postStats = () => {
+  $(".enter").on("click", (event) => {      
     event.preventDefault();
      
-    var userData = {      
+    const userData = {      
       miles: $("#miles-input").val().trim(),
       duration: $("#duration-input").val().trim(),      
       id: $("#id-input").val()      
@@ -31,24 +30,24 @@ function postStats(){
     $.ajax("/api/user-data", {
       type: "POST",
       data: userData
-    }).then(
-      function() {
+    }).then(() => {
        updateStats();             
     }); 
 
+    // Clear input fields after data is sent
     $("#miles-input").val("");
     $("#duration-input").val("");
     $("#id-input").val("");     
   });
 }
 
-function updateStats(){
-  $.get("/api/all-stats", function(data){     
+const updateStats = () => {
+  $.get("/api/all-stats", (data) => {     
    if (data.length === 0) {
      return; 
    } else {
       // Filter out database for entries that match the user logged in
-      var newLog = data.filter(x => x.UserId === userId);
+      const newLog = data.filter(x => x.UserId === userId);
 
       // Add information to HTML
       $("#miles").text(`${newLog[0].miles}${' total miles'}`);
