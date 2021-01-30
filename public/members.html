@@ -29,18 +29,7 @@
     </div>
     <div class="row">
       <div class="col-sm-4">
-        <form>
-          <div class="form-group">
-            <label for="type">Challenge Type:</label>
-            <select name="type" id="challenge-type">
-              <option display hidden>Choose a Challenge</option>
-              <option value="12-MILE">12 MILE</option>
-              <option value="30-MILE">30 MILE</option>
-              <option value="50-MILE">50 MILE</option>
-              <option value="75-MILE">75 MILE</option>
-              <option value="CENTURY-RIDE!">CENTURY RIDE!</option>
-            </select>
-          </div>
+        <form>          
           <div class="form-group">
             <label for="exampleInputMiles">MILES</label>
             <input type="Miles" class="form-control" id="miles-input" placeholder="Miles">
@@ -59,26 +48,17 @@
       </div>
       <div class="col-sm-6"></div>
       <div class="col-sm-2">
-        <div class="card" style="width: 18rem;">
-          
+        <div class="card" style="width: 18rem;">          
           <div class="card-body">
-            <h5 class="card-title">Tracker Totals</h5>
-            
+            <h5 class="card-title">Tracker Totals</h5>            
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item" id="challenge"></li>
+          <ul class="list-group list-group-flush">            
             <li class="list-group-item" id="miles"></li>
             <li class="list-group-item" id="duration"></li>
-          </ul>
-          <div class="card-body">
-            <button type="button" class="btn btn-link update">Update</button>
-            
-          </div>
+          </ul>          
         </div>
-
       </div>
-    </div>     
-          
+    </div>          
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
