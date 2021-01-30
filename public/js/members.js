@@ -12,7 +12,7 @@ $(document).ready(() => {
   });
  
   postStats();
-
+  
   updateStats();
    
 });
@@ -20,10 +20,8 @@ $(document).ready(() => {
 function postStats(){
   $(".enter").on("click", function(event) {      
     event.preventDefault();
-    var selectOption = $("select").children("option:selected").val();
-    
-    var userData = {
-      challenge: selectOption,
+     
+    var userData = {      
       miles: $("#miles-input").val().trim(),
       duration: $("#duration-input").val().trim(),      
       id: $("#id-input").val()      
@@ -35,34 +33,29 @@ function postStats(){
       data: userData
     }).then(
       function() {
-        console.log("Added new info");               
+       updateStats();             
     }); 
 
     $("#miles-input").val("");
     $("#duration-input").val("");
-    $("#id-input").val("");
-     
+    $("#id-input").val("");     
   });
-
 }
 
 function updateStats(){
-  $(".update").on("click", function(event){
-    event.preventDefault();
-
-    $.get("/api/all-stats", function(data){  
-      
+  $.get("/api/all-stats", function(data){     
+   if (data.length === 0) {
+     return; 
+   } else {
       // Filter out database for entries that match the user logged in
       var newLog = data.filter(x => x.UserId === userId);
 
       // Add information to HTML
-      $("#challenge").text(newLog[0].challenge);
       $("#miles").text(`${newLog[0].miles}${' total miles'}`);
-      $("#duration").text(`${newLog[0].duration}${ ' total min'}`);
-      
-    });     
-  });
+      $("#duration").text(`${newLog[0].duration}${ ' total min'}`); 
+    }       
+  }); 
 }
 
-updateStats();
+
 
