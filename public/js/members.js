@@ -41,7 +41,7 @@ const postStats = () => {
 }
 
 const updateStats = () => {
-  $.get("/api/all-stats", (data) => {     
+  $.get("/api/all-stats/" + userId, (data) => {     
    if (data.length === 0) {
      return; 
    } else {

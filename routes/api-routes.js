@@ -66,13 +66,15 @@ module.exports = (app) => {
         console.log("Info Added.")
         res.json(allStats);      
       });
-  });
-
-  
+  });  
 
   // Route for getting all user challenge data from database
-  app.get("/api/all-stats", function(req, res) {
-      db.cycleChallenge.findAll({})
+  app.get("/api/all-stats/:id", function(req, res) {
+      db.cycleChallenge.findAll({
+        where: {
+          UserId: req.params.id
+        }
+      })
       .then(function(allStats){
         console.log(allStats);
         res.json(allStats);
