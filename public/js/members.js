@@ -1,20 +1,20 @@
 // Store id in variable
-const userId;
+let userId;
  
-$(document).ready(() => {
+$(document).ready(() => {  
+  userInfo();
+  postStats();  
+  updateStats();   
+});
 
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
-  $.get("/api/user_data").then(data => {
+// GET request to get user info after login
+const userInfo = () => {
+  $.get("/api/user_data").then(data => {    
     userId = data.id;
     $(".member-name").text(`${data.firstName}${"!"}`);
     $("#id-input").val(data.id);
   });
- 
-  postStats();  
-  updateStats();
-   
-});
+}
 
 const postStats = () => {
   $(".enter").on("click", (event) => {      
@@ -36,8 +36,7 @@ const postStats = () => {
 
     // Clear input fields after data is sent
     $("#miles-input").val("");
-    $("#duration-input").val("");
-    $("#id-input").val("");     
+    $("#duration-input").val("");        
   });
 }
 
