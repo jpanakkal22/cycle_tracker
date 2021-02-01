@@ -63,33 +63,26 @@ module.exports = (app) => {
       UserId: req.body.id
     })
       .then(function(allStats) {
-        console.log("Info Added.")
         res.json(allStats);      
       });
   });  
 
   // Route for getting all user challenge data from database
   app.get("/api/all-stats/:id", function(req, res) {
-      db.cycleChallenge.findAll({
-        where: {
-          UserId: req.params.id
-        }
-      })
-      .then(function(allStats){
-        console.log(allStats);
-        res.json(allStats);
-
-        // Maps all database information
-        // var newArray = allStats.map(x => x.dataValues);
-
-        // // Filters out all data with RUN
-        // var filterArray = newArray.filter(function(y) {
-        //   return y.challenge === 'run';});
-
-        // // Filter out all data with WALK  
-        // var filterArrayUserId = newArray.filter(function(z) {
-        //   return z.UserId === 8;});           
-           
-      });          
+    db.cycleChallenge.findAll({
+      where: {
+        UserId: req.params.id
+      }
+    })
+    .then(function(allStats){  
+      // Add all miles data for user      
+      const sumMiles = allStats.map(element => element.miles)
+      .reduce((a, b) => a + b, 0);
+      // Add all duration data for user
+      const sumDuration = allStats.map(element => element.duration)
+      .reduce((a, b) => a + b, 0);
+      
+      res.json({ miles: sumMiles, duration: sumDuration });                 
+    });          
   });
 };
