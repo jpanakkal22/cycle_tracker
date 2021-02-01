@@ -29,7 +29,7 @@ const postStats = () => {
     };
         
     // Send the POST request.
-    $.ajax("/api/user-data", {
+    $.ajax("/api/cycle_data", {
       type: "POST",
       data: userData
     }).then(() => {
@@ -43,7 +43,7 @@ const postStats = () => {
 }
 
 const updateStats = () => {
-  $.get("/api/all-stats/" + userId, (data) => {    
+  $.get("/api/all_stats/" + userId, (data) => {    
     // Add information to HTML
     $("#miles").text(`${data.miles}${' total miles'}`);
     $("#duration").text(`${data.duration}${ ' total min'}`);      

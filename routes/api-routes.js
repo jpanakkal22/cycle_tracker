@@ -56,7 +56,7 @@ module.exports = (app) => {
   }); 
   
   // Route for posting all user challenge data to database
-  app.post("/api/user-data", (req, res) => {
+  app.post("/api/cycle_data", (req, res) => {
     db.cycleChallenge.create({
       miles: req.body.miles,
       duration: req.body.duration,      
@@ -68,7 +68,7 @@ module.exports = (app) => {
   });  
 
   // Route for getting all user challenge data from database
-  app.get("/api/all-stats/:id", function(req, res) {
+  app.get("/api/all_stats/:id", function(req, res) {
     db.cycleChallenge.findAll({
       where: {
         UserId: req.params.id
