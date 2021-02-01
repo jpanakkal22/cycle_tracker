@@ -2,9 +2,8 @@
 let userId;
  
 $(document).ready(() => {  
-  userInfo();
-  postStats();  
-  updateStats();   
+  userInfo();  
+  postStats();       
 });
 
 // GET request to get user info after login
@@ -13,7 +12,10 @@ const userInfo = () => {
     userId = data.id;
     $(".member-name").text(`${data.firstName}${"!"}`);
     $("#id-input").val(data.id);
-  });
+    
+  }).then(() => {
+    updateStats();
+  })
 }
 
 const postStats = () => {
@@ -41,17 +43,10 @@ const postStats = () => {
 }
 
 const updateStats = () => {
-  $.get("/api/all-stats/" + userId, (data) => {     
-   if (data.length === 0) {
-     return; 
-   } else {
-      // Filter out database for entries that match the user logged in
-      const newLog = data.filter(x => x.UserId === userId);
-
-      // Add information to HTML
-      $("#miles").text(`${newLog[0].miles}${' total miles'}`);
-      $("#duration").text(`${newLog[0].duration}${ ' total min'}`); 
-    }       
+  $.get("/api/all-stats/" + userId, (data) => {    
+    // Add information to HTML
+    $("#miles").text(`${data.miles}${' total miles'}`);
+    $("#duration").text(`${data.duration}${ ' total min'}`);      
   }); 
 }
 
