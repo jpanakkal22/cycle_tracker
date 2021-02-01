@@ -74,7 +74,16 @@ module.exports = (app) => {
         UserId: req.params.id
       }
     })
-    .then(function(allStats){  
+    .then(function(allStats){
+
+      // Map through data and pull out miles, duration and date 
+      const challengeData = allStats.map( cycle => {
+        return {
+          miles: cycle.miles,
+          duration: cycle.duration,
+          date: cycle.createdAt
+        }
+      });      
       // Add all miles data for user      
       const sumMiles = allStats.map(element => element.miles)
       .reduce((a, b) => a + b, 0);
@@ -82,7 +91,11 @@ module.exports = (app) => {
       const sumDuration = allStats.map(element => element.duration)
       .reduce((a, b) => a + b, 0);
       
-      res.json({ miles: sumMiles, duration: sumDuration });                 
+      res.json({ 
+        totalMiles: sumMiles, 
+        totalDuration: sumDuration,
+        allData: challengeData
+      });                 
     });          
   });
 };
