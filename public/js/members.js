@@ -33,7 +33,8 @@ const postStats = () => {
       type: "POST",
       data: userData
     }).then(() => {
-       updateStats();             
+      location.reload();
+      updateStats();             
     }); 
 
     // Clear input fields after data is sent
@@ -43,10 +44,25 @@ const postStats = () => {
 }
 
 const updateStats = () => {
-  $.get("/api/all_stats/" + userId, (data) => {    
+  $.get("/api/all_stats/" + userId, (data) => { 
+        
     // Add information to HTML
-    $("#miles").text(`${data.miles}${' total miles'}`);
-    $("#duration").text(`${data.duration}${ ' total min'}`);      
+    for (let i = 0; i < data.allData.length; i++) {
+      const tableRow = $("<tr>");
+      $("#tableBody").append(tableRow);
+      let dateX = (data.allData[i].date);
+      let tableDate = new Date(dateX).toLocaleDateString("en-US");
+      const tableData1 = $("<td>").text(tableDate);
+      tableData1.css("color", "white");
+      const tableData2 = $("<td>").text(data.allData[i].miles);
+      tableData2.css("color", "white");
+      const tableData3 = $("<td>").text(data.allData[i].duration);
+      tableData3.css("color", "white");
+      tableRow.append(tableData1, tableData2, tableData3);
+    }
+    // Add total miles and duration to HTML
+    $("#miles").text(`${data.totalMiles}${' total miles'}`);
+    $("#duration").text(`${data.totalDuration}${ ' total min'}`);      
   }); 
 }
 
