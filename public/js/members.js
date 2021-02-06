@@ -53,18 +53,21 @@ const updateStats = () => {
       let dateX = (data.allData[i].date);
       let tableDate = new Date(dateX).toLocaleDateString("en-US");
       const tableData1 = $("<td>").text(tableDate);
-      tableData1.css("color", "white");
-      const tableData2 = $("<td>").text(data.allData[i].miles);
-      tableData2.css("color", "white");
-      const tableData3 = $("<td>").text(data.allData[i].duration);
-      tableData3.css("color", "white");
-      tableRow.append(tableData1, tableData2, tableData3);
+      const tableData2 = $("<td> class='edit-data'").text(data.allData[i].miles);      
+      const tableData3 = $("<td> class='edit-table'").text(data.allData[i].duration);      
+      const editBtn = $("<td>" + "<button type='button' class='btn btn-default'>" + "<i class='bi bi-pencil-square'>");
+      const deleteBtn = $("<td>" + "<button type='button' class='btn btn-default'>" + "<i class='bi bi-x-square'>")
+      tableRow.append(tableData1, tableData2, tableData3, editBtn, deleteBtn);
     }
     // Add total miles and duration to HTML
     $("#miles").text(`${data.totalMiles}${' total miles'}`);
     $("#duration").text(`${data.totalDuration}${ ' total min'}`);      
   }); 
 }
+
+$("#editBtn").click((event) => {
+  $(".edit-data").attr("contenteditable", "true");
+})
 
 
 
