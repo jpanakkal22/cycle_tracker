@@ -1,35 +1,64 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body, html {
-  height: 100%;
+.bg1 {  
+  background-color: #f99a00;
+  opacity: 1;
+  background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #f99a00 40px ), repeating-linear-gradient( #00000055, #000000 );
 }
 
-.bg {
-  /* The image used */
+.bg2 {
   background-image: url("../assets/img_bike.jpg");
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
+  height: 100%; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.wrapper {
+  background-color: #4d4c4f;
+  opacity: 0.9;
+  padding: 20px;
+  color: #ffa400;  
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+label {
+  margin: 5px;
+}
+
+.btn-default {
+  background-color: #000000;
+  color: #ffa400;
+  border-color: #ffa400;
+}
+
+.btn-default:hover {
+  color: #ffffff;
+}
+
+a {
+  color: #ff8c00;
+}
+
+a:hover {
+  color: #ffffff;
 }
 
 .navbar {
   border-width: 0;
   background-color: rgba(255, 255, 255, 0);
 }
-
-.tableWrapper {
-  overflow-x: auto;
+table {
+  width: 100%;
+  color: white;
   
 }
-
 td, .bi {
   color: white;
 }
