@@ -54,10 +54,10 @@ const updateStats = () => {
       let tableDate = new Date(dateX).toLocaleDateString("en-US");
       const tableData1 = $("<td>").text(data.allData[i].id);
       const tableData2 = $("<td>").text(tableDate);
-      const tableData3 = $("<td> class='edit-data'").text(data.allData[i].miles);      
-      const tableData4 = $("<td> class='edit-table'").text(data.allData[i].duration);      
-      const editBtn = $("<td>" + "<button type='button' class='btn btn-default'>" + "<i class='bi bi-pencil-square'>");
-      const deleteBtn = $("<td>" + "<button type='button' class='btn btn-default'>" + "<i class='bi bi-x-square'>")
+      const tableData3 = $("<td class='edit-data'>").text(data.allData[i].miles);      
+      const tableData4 = $("<td class='edit-data'>").text(data.allData[i].duration);      
+      const editBtn = $("<td>" + "<button type='button' class='btn'>" + "<i class='bi bi-pencil-square'>");
+      const deleteBtn = $("<td>" + "<button type='button' class='btn'>" + "<i class='bi bi-x-square'>")
       tableRow.append(tableData1, tableData2, tableData3, tableData4, editBtn, deleteBtn);
     }
     // Add total miles and duration to HTML
@@ -66,7 +66,8 @@ const updateStats = () => {
   }); 
 }
 
-$("#editBtn").click((event) => {
+// Add contenteditable attribute to miles and duration table data when Edit button is clicked
+$("#editBtn").click(() => {  
   $(".edit-data").attr("contenteditable", "true");
 })
 

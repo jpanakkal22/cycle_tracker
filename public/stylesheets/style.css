@@ -103,5 +103,14 @@ th, td {
   text-align: center
 }
 
+#editBtn {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.bi {
+  color: #FFA500;
+}
+
 
 
