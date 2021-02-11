@@ -45,19 +45,20 @@ const postStats = () => {
 
 const updateStats = () => {
   $.get("/api/all_stats/" + userId, (data) => { 
-        
+        console.log(data);
     // Add information to HTML
     for (let i = 0; i < data.allData.length; i++) {
       const tableRow = $("<tr>");
       $("#tableBody").append(tableRow);
       let dateX = (data.allData[i].date);
       let tableDate = new Date(dateX).toLocaleDateString("en-US");
-      const tableData1 = $("<td>").text(tableDate);
-      const tableData2 = $("<td> class='edit-data'").text(data.allData[i].miles);      
-      const tableData3 = $("<td> class='edit-table'").text(data.allData[i].duration);      
+      const tableData1 = $("<td>").text(data.allData[i].id);
+      const tableData2 = $("<td>").text(tableDate);
+      const tableData3 = $("<td> class='edit-data'").text(data.allData[i].miles);      
+      const tableData4 = $("<td> class='edit-table'").text(data.allData[i].duration);      
       const editBtn = $("<td>" + "<button type='button' class='btn btn-default'>" + "<i class='bi bi-pencil-square'>");
       const deleteBtn = $("<td>" + "<button type='button' class='btn btn-default'>" + "<i class='bi bi-x-square'>")
-      tableRow.append(tableData1, tableData2, tableData3, editBtn, deleteBtn);
+      tableRow.append(tableData1, tableData2, tableData3, tableData4, editBtn, deleteBtn);
     }
     // Add total miles and duration to HTML
     $("#miles").text(`${data.totalMiles}${' total miles'}`);

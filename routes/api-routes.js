@@ -74,11 +74,12 @@ module.exports = (app) => {
         UserId: req.params.id
       }
     })
-    .then(function(allStats){
+    .then(function(allStats){      
 
-      // Map through data and pull out miles, duration and date 
+      // Map through data and pull out id, miles, duration and date 
       const challengeData = allStats.map( cycle => {
         return {
+          id: cycle.id,
           miles: cycle.miles,
           duration: cycle.duration,
           date: cycle.createdAt
