@@ -3,6 +3,16 @@
   padding: 0;
 }
 
+body {
+  color: #FFA500;
+  background-image: url("../assets/img_bike.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
+
 /* Main row of members page */
 .main {
   height: 100vh;
@@ -17,13 +27,14 @@
 }
 
 /* Background of members page container */
-.bg2 {
+/* .bg2 {
   background-image: url("../assets/img_bike.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-}
+  background-attachment: fixed;
+  height: 100%;
+} */
 
 /* Background of column containing table */
 .bg3 {
@@ -35,8 +46,7 @@
 .wrapper {
   background-color: #4d4c4f;
   opacity: 0.9;
-  padding: 20px;
-  color: #ffa400;  
+  padding: 20px;  
 }
 
 h2 {
@@ -49,35 +59,49 @@ label {
 
 .btn-default {
   background-color: #000000;
-  color: #ffa400;
-  border-color: #ffa400;
+  color: #FFA500;
+  border-color: #FFA500;
 }
 
 .btn-default:hover {
   color: #ffffff;
 }
 
+a.navbar-brand {
+  color: #FFA500;
+  padding-left: 15px;
+}
+
 a {
-  color: #ff8c00;
+  color: rgb(40,52,56);
 }
 
 a:hover {
   color: #ffffff;
 }
 
-/* Navbar for members page */
-.navbar {
-  border-width: 0;
+/* Navbar and tracker totals card for members page */
+.navbar, .card {  
   background: rgb(40,52,56);
   background: linear-gradient(90deg, rgba(40,52,56,1) 0%, rgba(255,144,0,0.5021358885351015) 100%);
 }
 
-table {
-  width: 100%;
-  color: white;  
+.card {  
+  border-width: 1px;
+  border-color: #FFA500;
 }
 
-td, .bi {
-  color: white;
+.list-group-item {
+  background: rgb(40,52,56);  
 }
+
+table {
+  width: 100%;
+  table-layout: auto;
+}
+th, td {
+  text-align: center
+}
+
+
 
