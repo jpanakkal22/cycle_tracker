@@ -99,4 +99,18 @@ module.exports = (app) => {
       });                 
     });          
   });
+
+  // Update database where entry has same UserId and id of req.body
+  app.put("/api/cycle_data", (req, res) => {
+    db.cycleChallenge.update(req.body, 
+      {
+        where: {
+          UserId: req.body.UserId,
+          id: req.body.dataId
+        }
+    })
+    .then(response => {
+      res.json(response);
+    });
+  })
 };
