@@ -54,7 +54,7 @@ const readStats = () => {
       $("#tableBody").append(tableRow);
       let dateX = (data.allData[i].date);
       let tableDate = new Date(dateX).toLocaleDateString("en-US");
-      const tableData1 = $("<td>").text(data.allData[i].id);
+      const tableData1 = $("<td hidden>").text(data.allData[i].id);
       const tableData2 = $("<td>").text(tableDate);
       const tableData3 = $("<td class='edit-data'>").text(data.allData[i].miles);      
       const tableData4 = $("<td class='edit-data'>").text(data.allData[i].duration);      
