@@ -58,8 +58,8 @@ const readStats = () => {
       const tableData2 = $("<td>").text(tableDate);
       const tableData3 = $("<td class='edit-data'>").text(data.allData[i].miles);      
       const tableData4 = $("<td class='edit-data'>").text(data.allData[i].duration);      
-      const checkBtn = $("<td>" + "<button type='button' class='btn change'>" + "<i class='bi bi-check2-circle'>");
-      const deleteBtn = $("<td>" + "<button type='button' class='btn'>" + "<i class='bi bi-x-square'>")
+      const checkBtn = $("<td>" + "<button type='button' class='btn change' disabled>" + "<i class='bi bi-check2-circle'>");
+      const deleteBtn = $("<td>" + "<button type='button' class='btn change' disabled>" + "<i class='bi bi-x-square'>")
       tableRow.append(tableData1, tableData2, tableData3, tableData4, checkBtn, deleteBtn);
     }
     // Add total miles and duration to HTML
@@ -71,6 +71,7 @@ const readStats = () => {
 // Add contenteditable attribute to miles and duration table data when Edit button is clicked
 $("#editBtn").click(() => {  
   $(".edit-data").attr("contenteditable", "true");
+  $(".change").attr("disabled", false);
 });
 
 
