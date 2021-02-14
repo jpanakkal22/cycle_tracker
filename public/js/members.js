@@ -14,10 +14,11 @@ const userInfo = () => {
     $("#id-input").val(data.id);
     
   }).then(() => {
-    updateStats();
+    readStats();
   })
 }
 
+// Create - create cycle entry 
 const postStats = () => {
   $(".enter").on("click", (event) => {      
     event.preventDefault();
@@ -34,7 +35,7 @@ const postStats = () => {
       data: userData
     }).then(() => {
       location.reload();
-      updateStats();             
+      readStats();             
     }); 
 
     // Clear input fields after data is sent
@@ -43,7 +44,8 @@ const postStats = () => {
   });
 }
 
-const updateStats = () => {
+// Read - retrieve cycle entries from database
+const readStats = () => {
   $.get("/api/all_stats/" + userId, (data) => { 
         
     // Add information to HTML
@@ -71,13 +73,13 @@ $("#editBtn").click(() => {
   $(".edit-data").attr("contenteditable", "true");
 });
 
+// Update - update table data and send PUT request
 // Using event delegation to capture click events for dynamically created buttons
 $("#tableBody").click((event) => {  
   if (event.target.matches("i.bi.bi-check2-circle")) {
     const par = $(event.target).parentsUntil("tbody");
-    const child = par[2].children;
+    const child = par[2].children;  
     
-    // console.log(child[0].innerHTML, child[2].innerHTML, child[3].innerHTML);
     const changedData = {
       UserId: userId,
       dataId: child[0].innerHTML,
@@ -91,7 +93,7 @@ $("#tableBody").click((event) => {
       data: changedData
     }).then(() => {
       location.reload();
-      updateStats();             
+      readStats();             
     });      
   }
   
