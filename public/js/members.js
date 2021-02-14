@@ -81,7 +81,6 @@ $("#tableBody").click((event) => {
   let child;
 
   if (event.target.matches("i.bi.bi-check2-circle")) { 
-    console.log(par) 
     child = par[2].children;   
 
     const changedData = {
