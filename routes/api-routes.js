@@ -108,9 +108,22 @@ module.exports = (app) => {
           UserId: req.body.UserId,
           id: req.body.dataId
         }
-    })
-    .then(response => {
-      res.json(response);
-    });
+      })
+      .then(response => {
+        res.json(response);
+      });
+  });
+
+  // Delete database entry with the same UserId and id of req.body
+  app.delete("/api/cycle_data", (req, res) => {
+    db.cycleChallenge.destroy({
+        where: {
+          UserId: req.body.UserId,
+          id: req.body.dataId
+        }
+      })
+      .then(response => {
+        res.json(response);
+      });
   })
 };

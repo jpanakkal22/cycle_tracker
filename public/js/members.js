@@ -73,13 +73,13 @@ $("#editBtn").click(() => {
   $(".edit-data").attr("contenteditable", "true");
 });
 
-// Update - update table data and send PUT request
+
 // Using event delegation to capture click events for dynamically created buttons
 $("#tableBody").click((event) => {  
-  if (event.target.matches("i.bi.bi-check2-circle")) {
-    const par = $(event.target).parentsUntil("tbody");
-    const child = par[2].children;  
-    
+  const par = $(event.target).parentsUntil("tbody");
+  const child = par[2].children; 
+
+  if (event.target.matches("i.bi.bi-check2-circle")) {    
     const changedData = {
       UserId: userId,
       dataId: child[0].innerHTML,
@@ -87,7 +87,7 @@ $("#tableBody").click((event) => {
       duration: child[3].innerHTML 
     }   
 
-    // Send the POST request.
+    // Update table data and send PUT request
     $.ajax("/api/cycle_data", {
       method: "PUT",      
       data: changedData
@@ -96,7 +96,19 @@ $("#tableBody").click((event) => {
       readStats();             
     });      
   }
-  
+  // Delete table row with DELETE request
+  else if (event.target.matches("i.bi.bi-x-square")) {
+    $.ajax("api/cycle_data", {
+      method: "DELETE",
+      data: {
+        UserId: userId,
+        dataId: child[0].innerHTML
+      }
+    }).then(() => {
+      location.reload();
+      readStats();
+    });
+  }  
 })
 
 
