@@ -78,9 +78,12 @@ $("#editBtn").click(() => {
 // Using event delegation to capture click events for dynamically created buttons
 $("#tableBody").click((event) => {  
   const par = $(event.target).parentsUntil("tbody");
-  const child = par[2].children; 
+  let child;
 
-  if (event.target.matches("i.bi.bi-check2-circle")) {    
+  if (event.target.matches("i.bi.bi-check2-circle")) { 
+    console.log(par) 
+    child = par[2].children;   
+
     const changedData = {
       UserId: userId,
       dataId: child[0].innerHTML,
@@ -99,6 +102,8 @@ $("#tableBody").click((event) => {
   }
   // Delete table row with DELETE request
   else if (event.target.matches("i.bi.bi-x-square")) {
+    child = par[2].children;
+
     $.ajax("api/cycle_data", {
       method: "DELETE",
       data: {
