@@ -57,27 +57,27 @@ module.exports = (app) => {
   
   // Route for posting all user challenge data to database
   app.post("/api/cycle_data", (req, res) => {
-    db.cycleChallenge.create({
+    db.cycleTracker.create({
       miles: req.body.miles,
       duration: req.body.duration,      
       UserId: req.body.id
     })
-      .then(function(allStats) {
+      .then(allStats => {
         res.json(allStats);      
       });
   });  
 
   // Route for getting all user challenge data from database
-  app.get("/api/all_stats/:id", function(req, res) {
-    db.cycleChallenge.findAll({
+  app.get("/api/all_stats/:id", (req, res) => {
+    db.cycleTracker.findAll({
       where: {
         UserId: req.params.id
       }
     })
-    .then(function(allStats){      
+    .then(allStats => {      
 
       // Map through data and pull out id, miles, duration and date 
-      const challengeData = allStats.map( cycle => {
+      const trackerData = allStats.map( cycle => {
         return {
           id: cycle.id,
           miles: cycle.miles,
@@ -95,14 +95,14 @@ module.exports = (app) => {
       res.json({ 
         totalMiles: sumMiles, 
         totalDuration: sumDuration,
-        allData: challengeData
+        allData: trackerData
       });                 
     });          
   });
 
   // Update database where entry has same UserId and id of req.body
   app.put("/api/cycle_data", (req, res) => {
-    db.cycleChallenge.update(req.body, 
+    db.cycleTracker.update(req.body, 
       {
         where: {
           UserId: req.body.UserId,
@@ -116,7 +116,7 @@ module.exports = (app) => {
 
   // Delete database entry with the same UserId and id of req.body
   app.delete("/api/cycle_data", (req, res) => {
-    db.cycleChallenge.destroy({
+    db.cycleTracker.destroy({
         where: {
           UserId: req.body.UserId,
           id: req.body.dataId

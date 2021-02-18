@@ -76,7 +76,7 @@ $("#editBtn").click(() => {
 
 
 // Using event delegation to capture click events for dynamically created buttons
-$("#tableBody").click((event) => {  
+$("#tableBody").click(event => {  
   const par = $(event.target).parentsUntil("tbody");
   let child;
 

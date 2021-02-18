@@ -1,8 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    var cycleChallenge = sequelize.define("cycleChallenge", {
-        challenge: {
-            type: DataTypes.STRING, 
-        },
+    var cycleTracker = sequelize.define("cycleTracker", {        
         miles: {
             type: DataTypes.INTEGER,            
         },        
@@ -11,15 +8,15 @@ module.exports = function(sequelize, DataTypes){
         }       
     });
 
-    cycleChallenge.associate = function(models) {
+    cycleTracker.associate = function(models) {
         // We're saying that a Post should belong to an Author
         // A Post can't be created without an Author due to the foreign key constraint
-        cycleChallenge.belongsTo(models.User, {
+        cycleTracker.belongsTo(models.User, {
             foreignKey: {
             allowNull: false
             }
         });
     };
     
-   return cycleChallenge;        
+   return cycleTracker;        
 }

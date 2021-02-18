@@ -36,7 +36,7 @@ $(document).ready(() => {
   }
   // Function to display login error message
   const handleLoginErr = () => {
-    $.get("/api/login", function(msg) {
+    $.get("/api/login", msg => {
       $(".msg").text(msg[0]);
       $("#alert").fadeIn(500);
     });   

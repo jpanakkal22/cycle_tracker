@@ -24,7 +24,7 @@ $(document).ready(() => {
     passwordInput.val("");    
   });
 
-  const signUpUser = (signUpInfo) => {
+  const signUpUser = signUpInfo => {
     // Send user information to database along signup route
     $.post("/api/signup", signUpInfo)
       .then(() => {
@@ -34,7 +34,7 @@ $(document).ready(() => {
       .catch(handleSignUpErr);
   }
 
-  const handleSignUpErr = (err) => {
+  const handleSignUpErr = err => {
     $(".msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }

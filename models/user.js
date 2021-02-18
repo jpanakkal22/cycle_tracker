@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   User.associate = function(models) {
-    User.hasMany(models.cycleChallenge, {
+    User.hasMany(models.cycleTracker, {
       onDelete: "cascade"
     });
    }
