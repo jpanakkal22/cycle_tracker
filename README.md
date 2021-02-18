@@ -30,7 +30,7 @@ Cycle Tracker allows users to enter in their ride stats to a database and displa
 Sign up or login in to access application.
 
 
-![Tracker](/public/assets/CycleTracker2.gif)
+![Tracker](/public/assets/CycleTracker1.gif)
 
 Create, read, update or delete cycle data entries.
 
