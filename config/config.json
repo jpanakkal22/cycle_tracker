@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Contigo%5",
+    "password": null,
     "database": "cycleChallenge_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
