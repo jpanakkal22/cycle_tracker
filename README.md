@@ -5,18 +5,9 @@
 ## Description
 Cycle Tracker is a full stack application that allows users to sign up and login to access the application where they can keep track of their rides. The applicatioon utilizes CRUD methods where a user can create entries of the miles and duration of their rides. A table is displayed that reads all their entries from a database, and a user also has the ability to edit the table by updating miles and duration entries as well as deleting them. Total stats are calculated and displayed. 
 
-The following technologies are used: 
-
-* HTML                     
-* CSS / Bootstrap
-* JavaScript
-* JQuery
-* Node.js
-* Express
-* MySQL
-
 ## Table of Contents
 
+* [Technologies](#technologies)
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
@@ -25,6 +16,9 @@ The following technologies are used:
 * [Tests](#tests)
 * [Questions](#questions)
 
+## Technologies
+HTML, CSS, Bootstrap, JavaScript, JQuery, Node.js, Express, MySQL
+
 ## Installation
 The following NPM packages were installed to create the application: bcryptjs, bootstrap-icons, passport, passport-local, sequelize, connect-flash and express. 
 
@@ -32,9 +26,12 @@ The following NPM packages were installed to create the application: bcryptjs, b
 Cycle Tracker allows users to enter in their ride stats to a database and display or modify their entries using an interactive table. 
 
 ![SignUp](/public/assets/SignUp.PNG)
+
 Sign up or login in to access application.
 
-![Tracker](/public/assets/CycleTracker.gif)
+
+![Tracker](/public/assets/CycleTracker2.gif)
+
 Create, read, update or delete cycle data entries.
 
 ## License
