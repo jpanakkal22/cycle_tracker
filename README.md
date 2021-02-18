@@ -3,7 +3,7 @@
 ![Cycle Tracker](/public/assets/Tracker.PNG)
 
 ## Description
-Cycle Tracker is a full stack application that allows users to sign up and login to access the application where they can keep track of their rides. The applicatioon utilizes CRUD methods where a user can create entries of the miles and duration of their rides. A table is displayed that reads all their entries from a database, and a user also has the ability to edit the table by updating miles and duration entries as well as deleting them. Total stats are calculated and displayed. 
+Cycle Tracker is a full stack application that allows users to sign up and login to access the application where they can keep track of their rides. The application utilizes CRUD methods where a user can create entries of their rides. A table is displayed that reads all their data from a database, and a user also has the ability to edit the table by updating miles and duration entries as well as deleting them. Total stats are calculated and displayed. 
 
 ## Table of Contents
 
