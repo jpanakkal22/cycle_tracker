@@ -48,8 +48,6 @@ None
 ## Questions?
 [jpanakkal22](https://github.com/jpanakkal22)
 
-You can also contact me at josh_panakkal3122@hotmail.com
-
 Heroku: https://fierce-ridge-71465.herokuapp.com/
 
 
